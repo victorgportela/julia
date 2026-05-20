@@ -67,7 +67,7 @@ const faqItems = [
     question:
       'Qual a diferença entre contratar um advogado de família comum e um especialista em divórcio patrimonial?',
     answer:
-      'Em separações com patrimônio relevante, a condução precisa ir além do litígio familiar tradicional. É necessário compreender estruturas societárias, riscos de partilha, impactos na imagem do cliente e decisões que repercutem no médio e no longo prazo.',
+      'Quando a separação envolve patrimônio, empresas ou estruturas familiares já consolidadas, a condução precisa ir além do litígio familiar tradicional. É necessário compreender estruturas societárias, riscos de partilha, impactos na imagem do cliente e decisões que repercutem no médio e no longo prazo.',
   },
   {
     question: 'O que acontece com a holding familiar em caso de divórcio?',
@@ -513,9 +513,12 @@ const appStyles = `
     left: 1.6rem;
     right: 1.6rem;
     bottom: 1.6rem;
-    padding-top: 1rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.45);
-    color: rgba(255, 255, 255, 0.9);
+    padding: 1.15rem 1.2rem;
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    border-radius: 20px;
+    background: linear-gradient(180deg, rgba(10, 14, 24, 0.42), rgba(10, 14, 24, 0.58));
+    backdrop-filter: blur(8px);
+    color: rgba(255, 255, 255, 0.94);
   }
 
   .portrait-caption strong,
@@ -528,9 +531,12 @@ const appStyles = `
 
   .portrait-caption span,
   .photo-caption span {
-    font-size: 0.95rem;
-    letter-spacing: 0.08em;
+    display: block;
+    margin-top: 0.3rem;
+    font-size: 0.9rem;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.82);
   }
 
   .section-block {
@@ -558,8 +564,12 @@ const appStyles = `
 
   .qualification-title {
     font-size: clamp(2.3rem, 6vw, 4rem);
-    max-width: 12ch;
+    max-width: 100%;
     color: var(--white);
+  }
+
+  .title-break {
+    display: block;
   }
 
   .section-title {
@@ -626,7 +636,7 @@ const appStyles = `
   .office-highlight {
     font-size: clamp(2rem, 4vw, 3rem);
     margin: 1.75rem 0 1.2rem;
-    max-width: 14ch;
+    max-width: 22ch;
   }
 
   .body-text {
@@ -680,24 +690,27 @@ const appStyles = `
 
   .services-grid {
     display: grid;
-    gap: 0;
+    gap: 1.25rem;
     margin-top: 2rem;
-    border-top: 1px solid rgba(184, 169, 138, 0.55);
   }
 
   .service-item {
-    padding: 1.35rem 0;
-    border-bottom: 1px solid rgba(184, 169, 138, 0.55);
+    height: 100%;
+    padding: 1.5rem;
+    border: 1px solid rgba(184, 169, 138, 0.42);
+    border-radius: 24px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(247, 244, 240, 0.92));
+    box-shadow: 0 12px 28px rgba(27, 42, 74, 0.05);
   }
 
   .service-title {
-    font-size: 1.85rem;
-    margin-bottom: 0.4rem;
+    font-size: 1.8rem;
+    margin-bottom: 0.65rem;
   }
 
   .service-description {
     margin: 0;
-    max-width: 32rem;
+    max-width: none;
   }
 
   .service-note {
@@ -1030,19 +1043,18 @@ const appStyles = `
 
     .services-grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      column-gap: 2rem;
-    }
-
-    .service-item:nth-child(odd) {
-      padding-right: 1rem;
-    }
-
-    .service-item:nth-child(even) {
-      padding-left: 1rem;
     }
 
     .field-grid {
       grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .qualification-title {
+      max-width: 30ch;
+    }
+
+    .office-highlight {
+      max-width: 20ch;
     }
   }
 
@@ -1070,6 +1082,14 @@ const appStyles = `
 
     .site-nav .mobile-contact {
       display: none;
+    }
+
+    .qualification-title {
+      max-width: 34ch;
+    }
+
+    .office-highlight {
+      max-width: 26ch;
     }
   }
 
@@ -1313,8 +1333,9 @@ function App() {
               <p className="eyebrow">Julia Nunes Advocacia • Pelotas/RS</p>
               <h1 className="hero-title">Advocacia estratégica para quem tem muito a proteger.</h1>
               <p className="hero-text">
-                Assessoria jurídica especializada em divórcios e reorganização patrimonial para
-                empresários, executivos e profissionais com patrimônio relevante.
+                Assessoria jurídica em divórcios e reorganização patrimonial para empresários,
+                executivos e profissionais que buscam condução cuidadosa, discreta e bem
+                estruturada.
               </p>
               <div className="hero-divider" aria-hidden="true" />
               <div>
@@ -1330,7 +1351,7 @@ function App() {
                 <img src={heroImage} alt="Retrato profissional da Dra. Julia Nunes" />
                 <div className="portrait-caption">
                   <strong>Atuação reservada e estratégica</strong>
-                  <span>Direito de Família com foco patrimonial</span>
+                  <span>Direito de família com atenção patrimonial</span>
                 </div>
               </div>
             </div>
@@ -1340,11 +1361,13 @@ function App() {
         <section id="para-quem" className="section-block navy-section fade-section" data-fade>
           <div className="section-inner">
             <h2 className="qualification-title">
-              Este escritório foi criado para um perfil específico de cliente.
+              Este escritório é para
+              <span className="title-break">um perfil específico de cliente.</span>
             </h2>
             <p className="section-intro">
-              Se você é empresário, sócio, executivo ou profissional liberal com patrimônio
-              constituído e enfrenta uma separação, este é o seu escritório.
+              Atendemos com especial atenção empresários, sócios, executivos e profissionais
+              liberais que passam por uma separação e buscam condução jurídica cuidadosa em
+              questões familiares e patrimoniais.
             </p>
 
             <div className="qualification-grid">
