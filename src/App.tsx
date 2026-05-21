@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
-import officeImage from './assets/escritorio.jpeg'
-import heroImage from './assets/juliahero.jpeg'
+import officeImage from './assets/SALA.jpeg'
+import heroImage from './assets/juliahero-new.png'
 import logoImage from './assets/logo.png'
 
 const services = [
