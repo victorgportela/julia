@@ -1,59 +1,38 @@
 import { useEffect, useMemo, useState } from 'react'
-import type { FormEvent } from 'react'
 import officeImage from './assets/escritorio.jpeg'
 import heroImage from './assets/juliahero.jpeg'
 import logoImage from './assets/logo.png'
 
 const services = [
   {
-    title: 'Assessoria em divórcios com alto impacto patrimonial',
+    title: 'Reorganização Patrimonial',
     description:
-      'Empresas, imóveis, investimentos, participações societárias e holdings familiares.',
+      'Quando o casamento chega ao fim, o que estava integrado precisa ser separado com precisão cirúrgica. Esta é a área central do escritório: conduzir a reorganização de patrimônios complexos, que envolvem imóveis, participações empresariais, investimentos e ativos de diversas naturezas, de forma a garantir que a estrutura construída ao longo de anos chegue ao outro lado funcional, protegida e sem passivos inesperados.',
   },
   {
-    title: 'Planejamento pré-divórcio e proteção patrimonial',
+    title: 'Divórcio e Dissolução de União Estável',
     description:
-      'Estratégia anterior ao ajuizamento, com redução de exposição e organização jurídica.',
+      'Cada processo de separação tem uma lógica própria. O que determina a estratégia não é apenas o regime de bens, mas a natureza do patrimônio envolvido, a existência de estruturas empresariais, o histórico de aquisições e a dinâmica entre as partes. O escritório atua em processos judiciais e extrajudiciais, sempre com foco na proteção patrimonial e na condução discreta, independentemente do nível de complexidade do caso.',
   },
   {
-    title: 'Acordos de separação com participações societárias',
+    title: 'Acordos Pré-Nupciais e Pactos Antenupciais',
     description:
-      'Estruturação de partilha envolvendo empresas familiares, quotas e ativos empresariais.',
+      'Um pacto antenupcial bem estruturado não é um sinal de desconfiança. É um instrumento de planejamento. Para quem já acumulou patrimônio relevante, definir com clareza as regras da sociedade conjugal antes de constituí-la é uma decisão estratégica tão importante quanto qualquer contrato societário. O escritório elabora pactos que refletem a realidade patrimonial de cada cliente, com linguagem precisa e cobertura das situações que contratos genéricos costumam deixar em aberto.',
   },
   {
-    title: 'Dissolução de união estável com repercussão patrimonial',
+    title: 'Reorganização de Estruturas Societárias Pós-Divórcio',
     description:
-      'Análise de risco, enquadramento jurídico e estratégia de proteção patrimonial.',
+      'A separação termina juridicamente, mas seus efeitos sobre a estrutura empresarial podem se estender por muito mais tempo se não forem tratados com o mesmo rigor estratégico do processo principal. Esta área trata da reorganização societária necessária após o divórcio: revisão de contratos sociais, ajuste de participações, proteção de sócios e continuidade operacional das empresas envolvidas.',
   },
   {
-    title: 'Contratos e pactos antenupciais para empresários',
+    title: 'Processos de Guarda, Alimentos e Direito de Convivência',
     description:
-      'Consultoria preventiva para regimes de bens, estruturas patrimoniais e preservação de ativos.',
+      'Em famílias com alto padrão de vida, as discussões sobre guarda, alimentos e convivência ganham camadas de complexidade que exigem assessoria especializada. O escritório atua nessas questões com o mesmo rigor técnico e a mesma discrição aplicados às demandas patrimoniais, sempre com foco na estabilidade dos filhos e na preservação de uma relação funcional entre as partes após o processo.',
   },
   {
-    title: 'Reorganização de estruturas societárias em separação',
+    title: 'Planejamento Patrimonial e Sucessório',
     description:
-      'Adequação jurídica de holdings, participações e estruturas empresariais em cenários sensíveis.',
-  },
-  {
-    title: 'Negociações extrajudiciais de divórcio e partilha',
-    description:
-      'Condução estratégica de acordos com menor exposição e maior previsibilidade.',
-  },
-  {
-    title: 'Guarda, alimentos e regulamentação de convivência',
-    description:
-      'Definição técnica de temas familiares conexos com equilíbrio, clareza e segurança jurídica.',
-  },
-  {
-    title: 'Planejamento patrimonial e sucessório',
-    description:
-      'Organização de ativos e estruturas familiares com atenção à continuidade e ao legado.',
-  },
-  {
-    title: 'Acordos pré-nupciais',
-    description:
-      'Instrumentos preventivos para alinhamento patrimonial e proteção de estruturas relevantes.',
+      'Proteger o que foi construído não começa no momento da separação. Começa muito antes. Esta área é dedicada a quem ainda não está em processo de divórcio, mas reconhece que estruturas patrimoniais relevantes precisam de um planejamento jurídico que antecipe riscos, organize a sucessão e garanta que o patrimônio familiar esteja blindado para qualquer evento futuro, conjugal ou sucessório.',
   },
 ]
 
@@ -100,35 +79,35 @@ const testimonials = [
   {
     initials: 'AR',
     quote:
-      'O diferencial esteve na leitura patrimonial do caso. Houve firmeza técnica, discrição e uma condução muito mais estratégica do que litigiosa.',
-    signature: 'Empresário, Porto Alegre/RS',
+      'Entrei nesse processo achando que ia perder o controle de tudo que construí em vinte anos. O que eu encontrei foi o oposto: uma condução estruturada desde o primeiro dia, com clareza sobre cada etapa e sobre o que estava protegido. A empresa saiu intacta. A separação foi resolvida sem escândalo. Não poderia ter sido diferente.',
+    signature: 'Empresário, setor de agronegócio, RS',
   },
   {
-    initials: 'MS',
+    initials: 'SD',
     quote:
-      'A atuação trouxe organização num momento sensível. O processo foi conduzido com clareza, reserva e atenção real às estruturas envolvidas.',
-    signature: 'Executiva, Pelotas/RS',
+      'O que me convenceu não foi o que ela disse na primeira conversa. Foi o que ela identificou antes mesmo de eu terminar de explicar o caso. Ela já havia pensado em problemas que eu nem sabia que existiam na minha estrutura societária. Esse nível de antecipação é o que diferencia uma advogada estratégica de uma advogada que apenas reage.',
+    signature: 'Sócio-diretor, empresa de tecnologia, RS',
   },
   {
-    initials: 'LC',
+    initials: 'MC',
     quote:
-      'Buscávamos um acordo sem exposição desnecessária. A negociação foi precisa e preservou temas patrimoniais que exigiam cuidado.',
-    signature: 'Profissional liberal, Rio Grande/RS',
+      'Minha maior preocupação era a exposição. Tenho sócios, tenho pacientes, tenho uma reputação profissional que levei anos construindo. O processo inteiro foi conduzido com discrição absoluta. Ninguém soube de nada até que tudo estivesse resolvido. Isso não tem preço.',
+    signature: 'Médica, sócia de clínica, RS',
   },
 ]
 
 const qualificationItems = [
   {
-    title: 'Empresários e sócios',
-    text: 'Com empresas, holdings ou participações societárias em risco na separação.',
+    title: 'Empresários e sócias',
+    text: 'Com empresas, holdings ou participações societárias que precisam de proteção em qualquer processo familiar, seja uma separação, uma disputa de alimentos ou uma reorganização patrimonial que envolva o futuro dos filhos.',
   },
   {
-    title: 'Executivos e gestores',
-    text: 'Com remuneração variável, bônus, stock options ou participações a proteger.',
+    title: 'Executivos e gestoras',
+    text: 'Com remuneração variável, bônus diferidos, stock options ou participações a proteger em processos que coloquem em risco o que foi acumulado ao longo de uma carreira.',
   },
   {
     title: 'Profissionais liberais',
-    text: 'Médicos, advogados e engenheiros com patrimônio imobiliário ou empresarial relevante.',
+    text: 'Médicas, advogadas, engenheiros, arquitetas e outros profissionais com patrimônio imobiliário, empresarial ou previdenciário relevante que precisam de condução estratégica em qualquer processo de direito de família.',
   },
 ]
 
@@ -156,21 +135,11 @@ const approachSteps = [
 ]
 
 const officeHighlights = [
-  'Postura boutique: poucos casos, dedicação total.',
   'Discrição e sigilo absoluto como pilares do atendimento.',
   'Estratégia patrimonial além do processo jurídico.',
   'Análise de risco, estrutura societária e exposição do cliente.',
   'Atendimento consultivo desde o primeiro contato.',
   'Linguagem clara com sofisticação jurídica adequada ao seu perfil.',
-]
-
-const contactOptions = [
-  'Divórcio com impacto patrimonial',
-  'Planejamento pré-divórcio',
-  'Pacto antenupcial',
-  'Guarda e alimentos',
-  'Planejamento patrimonial e sucessório',
-  'Outro',
 ]
 
 const appStyles = `
@@ -821,68 +790,52 @@ const appStyles = `
 
   .contact-panel,
   .contact-details {
+    padding: 0;
+    background: transparent;
+  }
+
+  .contact-details {
     border: 1px solid rgba(184, 169, 138, 0.45);
     border-radius: 28px;
     padding: 1.6rem;
-    background: rgba(255, 255, 255, 0.92);
   }
 
-  .contact-form {
-    display: grid;
-    gap: 1rem;
-    margin-top: 1.7rem;
+  .contact-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.35rem;
+    text-align: center;
   }
 
-  .field-grid {
-    display: grid;
-    gap: 1rem;
-  }
-
-  .field {
-    display: grid;
-    gap: 0.45rem;
-  }
-
-  .field span {
-    color: var(--navy);
-    font-size: 0.92rem;
-  }
-
-  .field input,
-  .field select,
-  .field textarea {
-    width: 100%;
-    box-sizing: border-box;
-    border: 1px solid rgba(27, 42, 74, 0.16);
-    border-radius: 18px;
-    padding: 0.95rem 1rem;
-    background: var(--white);
-    color: var(--text);
-    outline: none;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
-  }
-
-  .field input:focus,
-  .field select:focus,
-  .field textarea:focus {
-    border-color: rgba(27, 42, 74, 0.4);
-    box-shadow: 0 0 0 4px rgba(27, 42, 74, 0.05);
-  }
-
-  .field textarea {
-    min-height: 140px;
-    resize: vertical;
-  }
-
-  .field-error {
-    color: #8b3f3f;
-    font-size: 0.88rem;
-  }
-
-  .form-status {
+  .contact-cta-text {
     margin: 0;
+    max-width: 46rem;
+    color: var(--text-light);
+    line-height: 1.8;
+  }
+
+  .contact-cta-highlight {
+    margin: 0;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    line-height: 1.02;
     color: var(--navy);
-    font-size: 0.95rem;
+    max-width: 22ch;
+  }
+
+  .contact-cta-button {
+    min-height: 64px;
+    padding: 0 2.2rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    box-shadow: 0 16px 34px rgba(27, 42, 74, 0.16);
+  }
+
+  .contact-cta-button:hover {
+    box-shadow: 0 20px 40px rgba(27, 42, 74, 0.22);
   }
 
   .contact-copy {
@@ -961,11 +914,22 @@ const appStyles = `
     color: rgba(255, 255, 255, 0.85);
   }
 
-  .footer-nav,
-  .footer-contact {
+  .footer-nav {
     display: flex;
     flex-wrap: wrap;
     gap: 0.75rem 1.4rem;
+  }
+
+  .footer-contact {
+    display: grid;
+    gap: 0.8rem;
+  }
+
+  .footer-contact-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 1.6rem;
+    align-items: center;
   }
 
   .footer-note {
@@ -1025,8 +989,7 @@ const appStyles = `
 
   @media (min-width: 768px) {
     .hero-grid,
-    .office-grid,
-    .contact-grid {
+    .office-grid {
       grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
       gap: 3rem;
     }
@@ -1043,10 +1006,6 @@ const appStyles = `
 
     .services-grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .field-grid {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
     .qualification-title {
@@ -1091,6 +1050,10 @@ const appStyles = `
     .office-highlight {
       max-width: 26ch;
     }
+
+    .footer-contact-row {
+      justify-content: flex-start;
+    }
   }
 
   @media (max-width: 767px) {
@@ -1110,31 +1073,10 @@ const appStyles = `
   }
 `
 
-type FormData = {
-  name: string
-  phone: string
-  email: string
-  situation: string
-  message: string
-}
-
-type FormErrors = Partial<Record<keyof FormData, string>>
-
-const initialForm: FormData = {
-  name: '',
-  phone: '',
-  email: '',
-  situation: contactOptions[0],
-  message: '',
-}
-
 function App() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [openFaq, setOpenFaq] = useState<number | null>(0)
   const [showWhatsapp, setShowWhatsapp] = useState(false)
-  const [formData, setFormData] = useState<FormData>(initialForm)
-  const [errors, setErrors] = useState<FormErrors>({})
-  const [formStatus, setFormStatus] = useState('')
 
   const whatsappLink = useMemo(
     () =>
@@ -1227,52 +1169,6 @@ function App() {
     return () => window.removeEventListener('resize', onResize)
   }, [])
 
-  const validateForm = () => {
-    const nextErrors: FormErrors = {}
-
-    if (!formData.name.trim()) {
-      nextErrors.name = 'Informe seu nome.'
-    }
-
-    if (!formData.phone.trim()) {
-      nextErrors.phone = 'Informe um telefone para contato.'
-    }
-
-    if (!formData.email.trim()) {
-      nextErrors.email = 'Informe seu e-mail.'
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      nextErrors.email = 'Informe um e-mail válido.'
-    }
-
-    if (!formData.situation) {
-      nextErrors.situation = 'Selecione o tipo de situação.'
-    }
-
-    setErrors(nextErrors)
-    return Object.keys(nextErrors).length === 0
-  }
-
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault()
-
-    if (!validateForm()) {
-      setFormStatus('Revise os campos indicados antes de enviar.')
-      return
-    }
-
-    setFormStatus('Mensagem pronta para envio. Integre este formulário ao canal de atendimento preferido.')
-    setErrors({})
-    setFormData(initialForm)
-  }
-
-  const handleFieldChange = (field: keyof FormData, value: string) => {
-    setFormData((current) => ({ ...current, [field]: value }))
-
-    if (errors[field]) {
-      setErrors((current) => ({ ...current, [field]: undefined }))
-    }
-  }
-
   const navLinks = [
     { label: 'Início', href: '#inicio' },
     { label: 'O Escritório', href: '#escritorio' },
@@ -1333,9 +1229,8 @@ function App() {
               <p className="eyebrow">Julia Nunes Advocacia • Pelotas/RS</p>
               <h1 className="hero-title">Advocacia estratégica para quem tem muito a proteger.</h1>
               <p className="hero-text">
-                Assessoria jurídica em divórcios e reorganização patrimonial para empresários,
-                executivos e profissionais que buscam condução cuidadosa, discreta e bem
-                estruturada.
+                Advocacia especializada em direito de família para quem entende que relações
+                familiares e patrimônio são inseparáveis e precisam ser tratados com igual rigor.
               </p>
               <div className="hero-divider" aria-hidden="true" />
               <div>
@@ -1365,9 +1260,12 @@ function App() {
               <span className="title-break">um perfil específico de cliente.</span>
             </h2>
             <p className="section-intro">
-              Atendemos com especial atenção empresários, sócios, executivos e profissionais
-              liberais que passam por uma separação e buscam condução jurídica cuidadosa em
-              questões familiares e patrimoniais.
+              Para quem construiu patrimônio relevante, as questões familiares raramente são
+              simples. Uma separação mal conduzida pode comprometer décadas de trabalho. Um
+              processo de guarda, alimentos ou convivência sem estratégia pode expor o que deveria
+              permanecer protegido. O escritório existe para garantir que, qualquer que seja o
+              processo, você chegue ao outro lado com sua estrutura patrimonial, sua reputação e
+              suas relações familiares preservadas.
             </p>
 
             <div className="qualification-grid">
@@ -1402,7 +1300,7 @@ function App() {
                 atravesse esse processo com seu legado preservado no plano econômico e na sua imagem.
               </p>
               <p className="office-highlight">
-                Mais do que conduzir um divórcio, preservamos estruturas patrimoniais e empresariais.
+                Mais do que conduzir um processo, preservamos estruturas patrimoniais e empresariais.
               </p>
               <ul className="highlights-list">
                 {officeHighlights.map((item) => (
@@ -1417,7 +1315,7 @@ function App() {
                 <img src={officeImage} alt="Ambiente do escritório Julia Nunes Advocacia" />
                 <div className="photo-caption">
                   <strong>Atendimento consultivo</strong>
-                  <span>Presencial em Pelotas e online para casos complexos</span>
+                  <span>Presencial em Pelotas e online</span>
                 </div>
               </div>
             </div>
@@ -1445,11 +1343,11 @@ function App() {
 
         <section id="servicos" className="section-block fade-section" data-fade>
           <div className="section-inner">
-            <p className="eyebrow">Atuação Estratégica</p>
+            <p className="eyebrow">Advocacia Estratégica</p>
             <h2 className="section-title">Áreas de Atuação</h2>
             <p className="section-intro">
-              O escritório estrutura sua atuação a partir do impacto patrimonial, societário e
-              familiar de cada caso, com abordagem técnica e individualizada.
+              O escritório define sua atuação a partir dos impactos patrimoniais, societários e
+              familiares de cada caso, com uma condução técnica e rigorosamente individualizada.
             </p>
 
             <div className="services-grid">
@@ -1532,75 +1430,26 @@ function App() {
 
             <div className="contact-grid" style={{ marginTop: '2rem' }}>
               <div className="contact-panel">
-                <h3>Envie sua mensagem</h3>
-                <form className="contact-form" onSubmit={handleSubmit} noValidate>
-                  <div className="field-grid">
-                    <label className="field">
-                      <span>Nome</span>
-                      <input
-                        type="text"
-                        value={formData.name}
-                        onChange={(event) => handleFieldChange('name', event.target.value)}
-                        aria-invalid={Boolean(errors.name)}
-                      />
-                      {errors.name && <small className="field-error">{errors.name}</small>}
-                    </label>
-
-                    <label className="field">
-                      <span>Telefone</span>
-                      <input
-                        type="tel"
-                        value={formData.phone}
-                        onChange={(event) => handleFieldChange('phone', event.target.value)}
-                        aria-invalid={Boolean(errors.phone)}
-                      />
-                      {errors.phone && <small className="field-error">{errors.phone}</small>}
-                    </label>
-
-                    <label className="field">
-                      <span>E-mail</span>
-                      <input
-                        type="email"
-                        value={formData.email}
-                        onChange={(event) => handleFieldChange('email', event.target.value)}
-                        aria-invalid={Boolean(errors.email)}
-                      />
-                      {errors.email && <small className="field-error">{errors.email}</small>}
-                    </label>
-                  </div>
-
-                  <label className="field">
-                    <span>Tipo de situação</span>
-                    <select
-                      value={formData.situation}
-                      onChange={(event) => handleFieldChange('situation', event.target.value)}
-                      aria-invalid={Boolean(errors.situation)}
-                    >
-                      {contactOptions.map((option) => (
-                        <option key={option} value={option}>
-                          {option}
-                        </option>
-                      ))}
-                    </select>
-                    {errors.situation && <small className="field-error">{errors.situation}</small>}
-                  </label>
-
-                  <label className="field">
-                    <span>Mensagem</span>
-                    <textarea
-                      value={formData.message}
-                      onChange={(event) => handleFieldChange('message', event.target.value)}
-                    />
-                  </label>
-
-                  <div>
-                    <button type="submit" className="primary-button">
-                      Enviar
-                    </button>
-                  </div>
-
-                  {formStatus && <p className="form-status">{formStatus}</p>}
-                </form>
+                <h3>Conversa inicial</h3>
+                <p className="contact-cta-highlight">
+                  As primeiras semanas após a decisão de separação são as mais críticas para a
+                  proteção patrimonial.
+                </p>
+                <p className="contact-cta-text">
+                  Se este é o momento do seu caso, o primeiro passo deve ser dado com discrição,
+                  clareza e estratégia. Nossa equipe responde com agilidade e atendimento
+                  reservado.
+                </p>
+                <div>
+                  <a
+                    className="primary-button contact-cta-button"
+                    href={whatsappLink}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Falar no WhatsApp
+                  </a>
+                </div>
               </div>
 
               <aside className="contact-details">
@@ -1643,26 +1492,6 @@ function App() {
           </div>
         </section>
 
-        <section className="section-block beige-section fade-section" data-fade>
-          <div className="section-inner">
-            <p className="eyebrow">Presença Regional</p>
-            <h2 className="section-title">Pelotas/RS</h2>
-
-            <div className="map-frame">
-              <iframe
-                title="Mapa de Pelotas/RS"
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                src="https://www.google.com/maps?q=Pelotas%2C%20RS&z=12&output=embed"
-              />
-            </div>
-
-            <p className="map-caption">
-              Atendemos presencialmente em Pelotas e região. Para outras cidades, atendimento online
-              mediante análise.
-            </p>
-          </div>
-        </section>
       </main>
 
       <footer className="site-footer">
@@ -1686,14 +1515,18 @@ function App() {
           </nav>
 
           <div className="footer-contact">
-            <a href="https://instagram.com/julianunesadv" target="_blank" rel="noreferrer">
-              Instagram
-            </a>
-            <a href={whatsappLink} target="_blank" rel="noreferrer">
-              WhatsApp
-            </a>
-            <a href="mailto:contato@julianunesadvocacia.com">contato@julianunesadvocacia.com</a>
-            <p>(53) 99166-0883</p>
+            <div className="footer-contact-row">
+              <a href="https://instagram.com/julianunesadv" target="_blank" rel="noreferrer">
+                Instagram
+              </a>
+              <a href={whatsappLink} target="_blank" rel="noreferrer">
+                WhatsApp
+              </a>
+            </div>
+            <div className="footer-contact-row">
+              <a href="mailto:contato@julianunesadvocacia.com">contato@julianunesadvocacia.com</a>
+              <p>(53) 99166-0883</p>
+            </div>
           </div>
 
           <p className="footer-note">
