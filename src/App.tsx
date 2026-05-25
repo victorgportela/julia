@@ -1,5 +1,9 @@
 import { useEffect, useMemo, useState } from 'react'
 import officeImage from './assets/SALA.jpeg'
+import officeImageAltOne from './assets/foto2.jpeg'
+import officeImageAltTwo from './assets/foto3.jpeg'
+import officeImageAltThree from './assets/foto4.jpeg'
+import officeImageAltFour from './assets/foto5.jpeg'
 import heroImage from './assets/juliahero-new.png'
 import logoImage from './assets/logo.png'
 
@@ -445,6 +449,13 @@ const appStyles = `
     overflow: hidden;
   }
 
+  .office-photo {
+    display: grid;
+    gap: 1rem;
+    min-height: auto;
+    overflow: visible;
+  }
+
   .hero-portrait,
   .office-photo-card,
   .office-photo-secondary-card {
@@ -510,6 +521,20 @@ const appStyles = `
 
   .section-block {
     padding: 5.5rem 0;
+  }
+
+  .office-photo-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .office-photo-secondary {
+    min-height: 220px;
+  }
+
+  .office-photo-secondary-card {
+    min-height: 220px;
   }
 
   .navy-section {
@@ -794,40 +819,71 @@ const appStyles = `
     background: transparent;
   }
 
+  .contact-section-inner {
+    max-width: 72rem;
+  }
+
+  .contact-section .eyebrow {
+    margin-bottom: 0.45rem;
+  }
+
+  .contact-section .section-title {
+    margin-bottom: 0.9rem;
+  }
+
+  .contact-section .section-intro {
+    max-width: 38rem;
+    margin-bottom: 0;
+  }
+
   .contact-details {
     border: 1px solid rgba(184, 169, 138, 0.45);
     border-radius: 28px;
     padding: 1.6rem;
   }
 
+  .contact-grid {
+    gap: 2.4rem;
+    margin-top: 2.4rem;
+  }
+
   .contact-panel {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
+    align-items: flex-start;
+    justify-content: flex-start;
     gap: 1.35rem;
-    text-align: center;
+    text-align: left;
+    max-width: 44rem;
+    margin: 0;
   }
 
   .contact-cta-text {
     margin: 0;
-    max-width: 46rem;
+    max-width: 34rem;
     color: var(--text-light);
     line-height: 1.8;
+    font-size: 0.98rem;
   }
 
   .contact-cta-highlight {
     margin: 0;
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(2rem, 4vw, 2.8rem);
-    line-height: 1.02;
+    font-size: clamp(2.25rem, 3.4vw, 2.5rem);
+    line-height: 1.04;
     color: var(--navy);
     max-width: 22ch;
   }
 
+  .contact-cta-actions {
+    display: grid;
+    gap: 0.85rem;
+    align-items: start;
+  }
+
   .contact-cta-button {
     min-height: 64px;
-    padding: 0 2.2rem;
+    padding: 0 2.8rem;
     font-size: 1.1rem;
     font-weight: 500;
     letter-spacing: 0.01em;
@@ -868,6 +924,11 @@ const appStyles = `
   .contact-note {
     margin-top: 1.5rem;
     font-style: italic;
+  }
+
+  .contact-details {
+    max-width: 72rem;
+    margin: 2.8rem auto 0;
   }
 
   .map-frame {
@@ -938,30 +999,11 @@ const appStyles = `
   }
 
   .floating-whatsapp {
-    position: fixed;
-    right: 1rem;
-    bottom: 1rem;
-    z-index: 45;
-    width: 58px;
-    height: 58px;
-    border-radius: 50%;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    background: var(--navy);
-    color: var(--white);
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 18px 35px rgba(27, 42, 74, 0.2);
-    opacity: 0;
-    pointer-events: none;
-    transform: translateY(16px);
-    transition: opacity 0.25s ease, transform 0.25s ease;
+    display: none;
   }
 
   .floating-whatsapp.is-visible {
-    opacity: 1;
-    pointer-events: auto;
-    transform: translateY(0);
+    display: none;
   }
 
   .fade-section {
@@ -1318,6 +1360,32 @@ function App() {
                   <span>Presencial em Pelotas e online</span>
                 </div>
               </div>
+
+              <div className="office-photo-grid">
+                <div className="office-photo-secondary">
+                  <div className="office-photo-secondary-card">
+                    <img src={officeImageAltOne} alt="Detalhe do ambiente do escritório" />
+                  </div>
+                </div>
+
+                <div className="office-photo-secondary">
+                  <div className="office-photo-secondary-card">
+                    <img src={officeImageAltTwo} alt="Outro ambiente do escritório" />
+                  </div>
+                </div>
+
+                <div className="office-photo-secondary">
+                  <div className="office-photo-secondary-card">
+                    <img src={officeImageAltThree} alt="Detalhe adicional do escritório" />
+                  </div>
+                </div>
+
+                <div className="office-photo-secondary">
+                  <div className="office-photo-secondary-card">
+                    <img src={officeImageAltFour} alt="Ambiente complementar do escritório" />
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -1420,27 +1488,20 @@ function App() {
           </div>
         </section>
 
-        <section id="contato" className="section-block fade-section" data-fade>
-          <div className="section-inner">
+        <section id="contato" className="section-block fade-section contact-section" data-fade>
+          <div className="section-inner contact-section-inner">
             <p className="eyebrow">Contato</p>
             <h2 className="section-title">Entre em contato</h2>
-            <p className="section-intro">
-              O primeiro contato é confidencial. Responderemos com discrição e agilidade.
-            </p>
+            <p className="section-intro">O primeiro contato é confidencial. Responderemos com discrição e agilidade.</p>
 
-            <div className="contact-grid" style={{ marginTop: '2rem' }}>
+            <div className="contact-grid">
               <div className="contact-panel">
-                <h3>Conversa inicial</h3>
                 <p className="contact-cta-highlight">
                   As primeiras semanas após a decisão de separação são as mais críticas para a
                   proteção patrimonial.
                 </p>
-                <p className="contact-cta-text">
-                  Se este é o momento do seu caso, o primeiro passo deve ser dado com discrição,
-                  clareza e estratégia. Nossa equipe responde com agilidade e atendimento
-                  reservado.
-                </p>
-                <div>
+
+                <div className="contact-cta-actions">
                   <a
                     className="primary-button contact-cta-button"
                     href={whatsappLink}
@@ -1449,6 +1510,10 @@ function App() {
                   >
                     Falar no WhatsApp
                   </a>
+                  <p className="contact-cta-text">
+                    Se este é o seu caso, o primeiro passo necessita de discrição, clareza e
+                    estratégia.
+                  </p>
                 </div>
               </div>
 
