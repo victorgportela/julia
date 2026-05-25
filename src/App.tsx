@@ -823,15 +823,21 @@ const appStyles = `
     max-width: 72rem;
   }
 
-  .contact-section .eyebrow {
+  .contact-copy-column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .contact-copy-column .eyebrow {
     margin-bottom: 0.45rem;
   }
 
-  .contact-section .section-title {
+  .contact-copy-column .section-title {
     margin-bottom: 0.9rem;
   }
 
-  .contact-section .section-intro {
+  .contact-copy-column .section-intro {
     max-width: 38rem;
     margin-bottom: 0;
   }
@@ -844,7 +850,6 @@ const appStyles = `
 
   .contact-grid {
     gap: 2.4rem;
-    margin-top: 2.4rem;
   }
 
   .contact-panel {
@@ -852,10 +857,10 @@ const appStyles = `
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
-    gap: 1.35rem;
+    gap: 1.6rem;
     text-align: left;
     max-width: 44rem;
-    margin: 0;
+    margin: 2.4rem 0 0;
   }
 
   .contact-cta-text {
@@ -1031,9 +1036,15 @@ const appStyles = `
 
   @media (min-width: 768px) {
     .hero-grid,
-    .office-grid {
+    .office-grid,
+    .contact-grid {
       grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
       gap: 3rem;
+      align-items: start;
+    }
+
+    .contact-details {
+      margin: 0;
     }
 
     .qualification-grid,
@@ -1490,30 +1501,34 @@ function App() {
 
         <section id="contato" className="section-block fade-section contact-section" data-fade>
           <div className="section-inner contact-section-inner">
-            <p className="eyebrow">Contato</p>
-            <h2 className="section-title">Entre em contato</h2>
-            <p className="section-intro">O primeiro contato é confidencial. Responderemos com discrição e agilidade.</p>
-
             <div className="contact-grid">
-              <div className="contact-panel">
-                <p className="contact-cta-highlight">
-                  As primeiras semanas após a decisão de separação são as mais críticas para a
-                  proteção patrimonial.
+              <div className="contact-copy-column">
+                <p className="eyebrow">Contato</p>
+                <h2 className="section-title">Entre em contato</h2>
+                <p className="section-intro">
+                  O primeiro contato é confidencial. Responderemos com discrição e agilidade.
                 </p>
 
-                <div className="contact-cta-actions">
-                  <a
-                    className="primary-button contact-cta-button"
-                    href={whatsappLink}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    Falar no WhatsApp
-                  </a>
-                  <p className="contact-cta-text">
-                    Se este é o seu caso, o primeiro passo necessita de discrição, clareza e
-                    estratégia.
+                <div className="contact-panel">
+                  <p className="contact-cta-highlight">
+                    As primeiras semanas após a decisão de separação são as mais críticas para a
+                    proteção patrimonial.
                   </p>
+
+                  <div className="contact-cta-actions">
+                    <a
+                      className="primary-button contact-cta-button"
+                      href={whatsappLink}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      Falar no WhatsApp
+                    </a>
+                    <p className="contact-cta-text">
+                      Se este é o seu caso, o primeiro passo necessita de discrição, clareza e
+                      estratégia.
+                    </p>
+                  </div>
                 </div>
               </div>
 
