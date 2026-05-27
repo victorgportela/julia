@@ -1,9 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
-import officeImage from './assets/SALA.jpeg'
-import officeImageAltOne from './assets/foto2.jpeg'
-import officeImageAltTwo from './assets/foto3.jpeg'
-import officeImageAltThree from './assets/foto4.jpeg'
-import officeImageAltFour from './assets/foto5.jpeg'
+import officeImage from './assets/jescri.jpeg'
 import heroImage from './assets/juliahero-new.png'
 import logoImage from './assets/logo.png'
 
@@ -442,23 +438,18 @@ const appStyles = `
   }
 
   .hero-media,
-  .office-photo,
-  .office-photo-secondary {
+  .office-photo {
     position: relative;
     min-height: 420px;
     overflow: hidden;
   }
 
   .office-photo {
-    display: grid;
-    gap: 1rem;
     min-height: auto;
-    overflow: visible;
   }
 
   .hero-portrait,
-  .office-photo-card,
-  .office-photo-secondary-card {
+  .office-photo-card {
     position: relative;
     height: 100%;
     min-height: 420px;
@@ -470,16 +461,14 @@ const appStyles = `
   }
 
   .hero-portrait img,
-  .office-photo-card img,
-  .office-photo-secondary-card img {
+  .office-photo-card img {
     width: 100%;
     height: 100%;
     object-fit: cover;
   }
 
   .hero-portrait::before,
-  .office-photo-card::before,
-  .office-photo-secondary-card::before {
+  .office-photo-card::before {
     content: '';
     position: absolute;
     inset: 1.15rem;
@@ -521,20 +510,6 @@ const appStyles = `
 
   .section-block {
     padding: 5.5rem 0;
-  }
-
-  .office-photo-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1rem;
-  }
-
-  .office-photo-secondary {
-    min-height: 220px;
-  }
-
-  .office-photo-secondary-card {
-    min-height: 220px;
   }
 
   .navy-section {
@@ -1115,8 +1090,7 @@ const appStyles = `
     }
 
     .hero-portrait,
-    .office-photo-card,
-    .office-photo-secondary-card {
+    .office-photo-card {
       min-height: 360px;
     }
 
@@ -1371,32 +1345,6 @@ function App() {
                   <span>Presencial em Pelotas e online</span>
                 </div>
               </div>
-
-              <div className="office-photo-grid">
-                <div className="office-photo-secondary">
-                  <div className="office-photo-secondary-card">
-                    <img src={officeImageAltOne} alt="Detalhe do ambiente do escritório" />
-                  </div>
-                </div>
-
-                <div className="office-photo-secondary">
-                  <div className="office-photo-secondary-card">
-                    <img src={officeImageAltTwo} alt="Outro ambiente do escritório" />
-                  </div>
-                </div>
-
-                <div className="office-photo-secondary">
-                  <div className="office-photo-secondary-card">
-                    <img src={officeImageAltThree} alt="Detalhe adicional do escritório" />
-                  </div>
-                </div>
-
-                <div className="office-photo-secondary">
-                  <div className="office-photo-secondary-card">
-                    <img src={officeImageAltFour} alt="Ambiente complementar do escritório" />
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </section>
@@ -1535,8 +1483,7 @@ function App() {
               <aside className="contact-details">
                 <h3>Contato direto</h3>
                 <p className="contact-copy">
-                  Atendimento reservado para Pelotas, Capão do Leão, Rio Grande, Jaguarão e região,
-                  com possibilidade de atuação online em outros municípios e estados.
+                  Atendimento reservado em Pelotas/RS, com atendimento online para todo o Brasil.
                 </p>
 
                 <div className="contact-stack">
@@ -1560,7 +1507,7 @@ function App() {
                   </div>
                   <div className="contact-item">
                     <strong>Localização</strong>
-                    <p>Pelotas/RS — Atendimento online disponível</p>
+                    <p>Avenida Dona Zilda, 105, Flow Work, sala 1009, Parque Una, Pelotas/RS</p>
                   </div>
                 </div>
 
